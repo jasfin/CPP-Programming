@@ -1,0 +1,45 @@
+/*
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+}*/
+
+void levelOrder(node * root) {
+    if(root==NULL) return;
+    queue<node*> q;
+    node *ptr=root,*ptr1;
+    q.push(root);
+
+    while(q.empty()!=1)
+    {
+        ptr1=q.front();
+        q.pop();
+        cout<<ptr1->data<<" ";
+        if(ptr1->left!=NULL)
+            q.push(ptr1->left);
+        if(ptr1->right!=NULL)
+            q.push(ptr1->right);
+        
+    }
+
+
+void levelorder(node *root)
+{
+  //node *ptr;
+  if(root==NULL)
+     return;
+  queue<node *> q;
+  q.push(root);
+  while(q.empty()!=1)
+  {
+    node *ptr=q.front();
+    q.pop();
+    cout<<ptr->data<<"\t";
+    if(ptr->left!=NULL)
+       p.push(ptr->left);
+    if(ptr->right!=NULL)
+       q.push(ptr->right);
+  }
+}

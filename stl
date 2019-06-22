@@ -1,0 +1,519 @@
+#include <bits/stdc++.h>
+
+1.kmp
+2.z alg
+3.
+
+
+
+heap sort stl: 1.input the vector, make_heap(v.begin(),v.end()); and sort_heap(v.begin(),v.end()); will sort the vector.
+               to add an element to the heap do v.push_back(item); and then push_heap(v.begin(),v.end()) will suitable rearrange heap.
+               to delete an element do pop_heap(v.begin(),v.end());// see heapstl.cpp
+
+vectorfuncs:v.push_back(),v.size(),v.resize(2),find: if(find(v.begin(),v.end(),item)!=v.end()){}; ,reverse: reverse(v.begin(),v.end());
+ (use #include<algorithm> for the latter cases)
+stack funcs: s.push(20),s.pop(),s.empty(),s.top()-value at top
+queue funcs: q.push(20),q.pop(),q.front(),q.back(),q.size()
+set funcs: s.insert(20),s.erase(20),s.begin(),s.end(),iterators,s.size(), if(s.find(item)!=s.end()){}//set values are in sorted 
+
+sort(arr,arr+size)// sort an array 
+sort(v.begin(),v.end()) //sort a vector
+
+string str="a";
+cout<<int(str); //prints 97
+string str2="45";
+int p=stoi(str2);//assingns 45 to p   or int p=str2-'0';
+
+heap stl functions: 
+   make_heap(arr,arr+size) or make_heap(v.begin(),v.end())
+   add an element to the array or vector and then call push_heap(v.begin(),v.end()) or push_heap(arr,arr+size)
+   pop_heap(v.begin(),v.end()) will pop the root element which is the largest element and then place it at the end of the array..
+   sort_heap(v.begin(),v.end()) will do heap sort operation on the array.
+
+binary search stl:  if(binary_search(arr,arr+size,item))
+
+
+
+
+
+MAPS: key-value pair stored as a table
+there are 2 types of maps: map and unordered_map.
+*map stores data in sorted order of keys,implementation is a self balancing bst. 
+ all operations are done in O(logn).
+*unordered_map stores data without any order,implementation is a hash table.
+ all operations are done in O(1) avg and O(n) worst case..
+
+for(auto ref=m.begin();ref!=m.end();ref++)
+    cout<<ref->first<<":"<<ref->second<<"\n";
+//above code displays data in sorted order of keys.
+//map erase: let m[2]=89;   m.erase(2) or m.erase(it),it is pointer..
+map<int,int> m; //map of key and value
+map<int,int> m{ {1,2},{4,3} };
+map<string,int> m;
+ m["hello"]=2;
+ m["how"]=4;
+map<char,int> m(map1.begin(),map1.end()); //entries copied from begin to end
+map<string,int> m1(m); //create a copy of m
+
+TRIE- A data structure somewhat similar to a tree, that can be used to store
+      tens of thousands of strings for faster processing and retrieval.
+      strings with same prefix have the same ancestor in the tree.
+      uses of trie - lexicographic sorting of strings,prefix based searching.
+      with hash table, prefix based search isn't possible and it occupies
+      more memory than a trie. 
+
+
+
+
+
+
+std::string s;
+    std::cout << "Enter the amino acid string: ";
+    std::cin >> s;
+    std::cout << "\nThe permutations of the given string:\n";
+
+    std::sort(s.begin(), s.end());
+    do
+    {
+        std::cout << s << '\n';
+    } while(std::next_permutation(s.begin(), s.end()));
+
+erase in string: s.erase(s.begin()+5)-position is given here...
+                 s.erase(5,7)- s[5] to next 6 items removed...
+
+
+
+cout<<m.at(1) //display value at key=1;
+m.at(2)=4  or m[2]=4 //change value at key=2;
+
+empty(),size(),max_size()-max possible entries that a map can contain
+
+m.insert(make_pair(5,6)); 
+m.insert( pair<int,int> (4,5));
+map::iterator i,j;
+i=m.find(2);
+j=m.find(5);
+
+m.insert(i,j); //insert into m all those pairs pointed by iterator i to j
+m.insert(make_pair(5,6)) //will not insert this pair if m already has a key 5;
+
+erase(iterator_it) //will erase the pair pointed by the iterator iterator_it
+erase(i,j) //erase entries in a range
+
+begin()-returns iterator to the beginning
+end()- returns iterator at the end , if there are 3 pairs, this fn will return 4
+
+
+
+String operations:
+ 
+#include<string>
+char s1[]="hello"; (if <cstring> is used )
+strcpy(s1,s2);
+strcat(s1,s2);
+strlen(s2);
+strchr(s1,ch); //index of ch in s1
+strstr(s1,s2);
+getline(cin,s1) //read a string in cpp
+A-Z { 65 to 90 }
+a-z { 97 to 122 }
+0-9 { 48 to 57 }
+
+#include<cctype>
+string str="";
+str.append("hello");
+cout<<str.substr(2,5);
+str.length();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vector<int> v(10); 
+ for(int i = 0; i < 10; i++) { 
+      v[i] = (i+1)*(i+1); 
+ } 
+ for(int i = 9; i > 0; i--) { 
+      v[i] -= v[i-1]; 
+ } 
+
+ int elements_count = v.size();  
+
+
+ vector<int> v; 
+ for(int i = 1; i < 1000000; i *= 2) { 
+      v.push_back(i); 
+ } 
+ int elements_count = v.size(); 
+
+
+vector<int> v(20); 
+ for(int i = 0; i < 20; i++) { 
+      v[i] = i+1; 
+ } 
+ v.resize(25); 
+ for(int i = 20; i < 25; i++) { 
+      v[i] = i*2; 
+ } 
+
+
+
+void some_function(vector<int> v) { // Never do it unless you’re sure what you do! 
+      // ... 
+ } 
+Instead, use the following construction:
+ void some_function(const vector<int>& v) { // OK 
+      // ... 
+ } 
+If you are going to change the contents of vector in the function, just omit the ‘const’ modifier.
+ int modify_vector(vector<int>& v) { // Correct 
+      V[0]++; 
+ } 
+
+
+
+if(find(v.begin(), v.end(), 49) != v.end()) {}
+
+
+
+set<int> s; 
+
+ for(int i = 1; i <= 100; i++) { 
+      s.insert(i); // Insert 100 elements, [1..100] 
+ } 
+
+ s.insert(42); // does nothing, 42 already exists in set 
+
+ for(int i = 2; i <= 100; i += 2) { 
+      s.erase(i); // Erase even values 
+ } 
+
+ int n = int(s.size()); // n will be 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <stack>
+ 
+using namespace std;
+ 
+void showstack(stack <int> gq)
+{
+    stack <int> g = gq;
+    while (!g.empty())
+    {
+        cout << '\t' << g.top();
+        g.pop();
+    }
+    cout << '\n';
+}
+ 
+int main ()
+{
+    stack <int> gquiz;
+    gquiz.push(10);
+    gquiz.push(30);
+    gquiz.push(20);
+    gquiz.push(5);
+    gquiz.push(1);
+ 
+    cout << "The stack gquiz is : ";
+    showstack(gquiz);
+ 
+    cout << "\ngquiz.size() : " << gquiz.size();
+    cout << "\ngquiz.top() : " << gquiz.top();
+ 
+ 
+    cout << "\ngquiz.pop() : ";
+    gquiz.pop();
+    showstack(gquiz);
+ 
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <queue>
+ 
+using namespace std;
+ 
+void showq(queue <int> gq)
+{
+    queue <int> g = gq;
+    while (!g.empty())
+    {
+        cout << '\t' << g.front();
+        g.pop();
+    }
+    cout << '\n';
+}
+ 
+int main()
+{
+    queue <int> gquiz;
+    gquiz.push(10);
+    gquiz.push(20);
+ 
+    cout << "The queue gquiz is : ";
+    showq(gquiz);
+ 
+    cout << "\ngquiz.size() : " << gquiz.size();
+    cout << "\ngquiz.front() : " << gquiz.front();
+    cout << "\ngquiz.back() : " << gquiz.back();
+ 
+    cout << "\ngquiz.pop() : ";
+    gquiz.pop();
+    showq(gquiz);
+ 
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <stack>
+ 
+using namespace std;
+ 
+void showstack(stack <int> gq)
+{
+    stack <int> g = gq;
+    while (!g.empty())
+    {
+        cout << '\t' << g.top();
+        g.pop();
+    }
+    cout << '\n';
+}
+ 
+int main ()
+{
+    stack <int> gquiz;
+    gquiz.push(10);
+    gquiz.push(30);
+    gquiz.push(20);
+    gquiz.push(5);
+    gquiz.push(1);
+ 
+    cout << "The stack gquiz is : ";
+    showstack(gquiz);
+ 
+    cout << "\ngquiz.size() : " << gquiz.size();
+    cout << "\ngquiz.top() : " << gquiz.top();
+ 
+ 
+    cout << "\ngquiz.pop() : ";
+    gquiz.pop();
+    showstack(gquiz);
+ 
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream.h>
+void quicksort(vector<int>& a,int first,int last)
+{
+ if(first>=last)
+  return;
+ int pivot=a[first];
+ int left=first;
+ int right=last,temp;
+ while(left<right)
+ {
+  if(pivot==a[left])
+  {
+    if(a[right]<pivot)
+    {
+      temp=a[left];
+      a[left]=a[right];
+      a[right]=temp;
+      left=left+1;
+    }
+    else
+     right--;
+  }
+  //if(pivot==a[right])
+ else 
+ {
+    if(a[left]>pivot)
+    {
+      temp=a[left];
+      a[left]=a[right];
+      a[right]=temp;
+      right--;
+    }
+    else
+     left++;
+  }
+ }
+ 
+ quicksort(a,first,left-1);
+ quicksort(a,left+1,last);
+}
+
+int main()
+{
+  long int N;
+  cin>>N;
+  vector<int> sdate(N);
+  vector<int> length(N);
+  
+  for(int i=0;i<N;i++)
+    cin>>sdate[i]>>length[i];
+  
+  quicksort(length,0,N-1);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include<stdlib.h>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    map<int,int> m;
+    int val;
+    char s[1000];
+    for(int i=97;i<=122;i++)
+      m.insert(make_pair(i,0));
+    getline(cin,s);
+    for(int i=0;s[i]!='\0';i++)
+    {
+        val=int(s[i]);
+        if(val<97) 
+            val+=32;
+        m.at(val)=1;
+    }
+    int i;
+    for(i=97;i<=122;i++)
+        if(m.at(i)!=1) 
+            break;
+    if(i<=122)
+        cout<<"not pangram";
+    else
+        cout<<"pangram";
+      
+    return 0;
+}
+

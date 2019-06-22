@@ -1,0 +1,16 @@
+1.build a common tree ,traverse,insert a leaf(tree_basics.cpp)
+2.bst-build,inorder successor,traverse,delete
+3.reverse llist
+4.seg fault main reason=refering illegal memory location,eg: NULL->data or garbagevalue->data...
+  avoid such conditions...and while initializing pointers use NULL..eg: Node *head=NULL
+
+
+Accessing word by word from a character string:
+char sen[]="hello all now";
+istringstream ss(sen);
+  while(ss)
+   {
+       ss>>sub;
+          :
+   }
+

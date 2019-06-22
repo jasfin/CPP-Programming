@@ -1,0 +1,18 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main()
+{
+    stack<int> s;
+    s.push(2);
+    s.push(4);
+    //cout<<s.find(4);
+    while(s.empty()!=1)
+    {
+      cout<<"\n"<<s.top();
+      s.pop();
+    }
+    
+    // cout<<"\n"<<s[0]; is invalid
+}
